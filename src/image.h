@@ -8,7 +8,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-template<typename T>
+
 class Image {
 public:
     Image(uint32_t t_width, uint32_t t_height);
@@ -22,7 +22,7 @@ public:
     uint32_t getHeight();
 
 private:
-    uint32_t width;
-    uint32_t height;
-    T* arr;
+    uint32_t m_width;
+    uint32_t m_height;
+    char* m_arr;
 };
