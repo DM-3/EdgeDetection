@@ -1,13 +1,10 @@
+#ifndef IMAGE_H
+#define IMAGE_H
+
 #include <iostream>
 #include <string>
 #include <vector>
-
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
-
+#include <inttypes.h>
 
 class Image {
 public:
@@ -22,7 +19,9 @@ public:
     uint32_t getHeight();
 
 private:
-    uint32_t m_width;
-    uint32_t m_height;
-    char* m_arr;
+    uint32_t m_width  = 0;
+    uint32_t m_height = 0;
+    unsigned char* m_arr = nullptr;
 };
+
+#endif

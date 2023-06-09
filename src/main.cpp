@@ -11,13 +11,9 @@ int main(int argc, char** argv) {
     std::string store_path;
     parseArguments(argc, argv, load_path, store_path);
 
-    /*
-    Image input_image;
-    Image output_image;
+    Image input_image(load_path);
+    input_image.store(store_path);
 
-    input_image.load(load_path);
-    output_image.store(store_path);
-    */
 
     return 1;
 }
@@ -33,7 +29,7 @@ void parseArguments(int t_argc, char** t_argv, std::string& t_load_path, std::st
 
     // create store path
     t_store_path = std::string(t_load_path);
-    int insert_pos = t_store_path.find('.');
+    int insert_pos = t_store_path.find('.', t_store_path.find('/'));
     if(insert_pos >= t_store_path.length()) {
         throw std::invalid_argument("missing file extension");
     }
