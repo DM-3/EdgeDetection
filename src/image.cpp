@@ -44,3 +44,15 @@ void Image::store(std::string t_store_path) {
 uint32_t Image::getWidth() { return m_width; }
 
 uint32_t Image::getHeight() { return m_height; }
+
+
+
+uint32_t Image::getPixel(int t_x, int t_y) {
+    if(t_x >= m_width || t_y >= m_height) return 0;
+    return ((uint32_t*)m_arr)[t_y * m_width + t_x];
+}
+
+void Image::setPixel(int t_x, int t_y, uint32_t t_value) {
+    if(t_x >= m_width || t_y >= m_height) return;
+    ((uint32_t*)m_arr)[t_y * m_width + t_x] = t_value;
+}

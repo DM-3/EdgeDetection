@@ -18,6 +18,9 @@ public:
     uint32_t getWidth();
     uint32_t getHeight();
 
+    uint32_t getPixel(int t_x, int t_y);
+    void setPixel(int t_x, int t_y, uint32_t t_value);
+
 private:
     uint32_t m_width  = 0;
     uint32_t m_height = 0;

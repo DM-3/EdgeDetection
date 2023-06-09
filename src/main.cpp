@@ -12,8 +12,11 @@ int main(int argc, char** argv) {
     parseArguments(argc, argv, load_path, store_path);
 
     Image input_image(load_path);
-    input_image.store(store_path);
+    Image output_image(input_image.getWidth(), input_image.getHeight());
 
+    passConvolution(input_image, output_image);
+
+    output_image.store(store_path);
 
     return 1;
 }
