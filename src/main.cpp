@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     output_image.store(store_path);
     */
 
-   return 1;
+    return 1;
 }
 
 void parseArguments(int t_argc, char** t_argv, std::string& t_load_path, std::string& t_store_path) {
