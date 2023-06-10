@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <inttypes.h>
+#include <stdlib.h>
 
 class Image {
 public:

@@ -11,12 +11,13 @@ int main(int argc, char** argv) {
     std::string store_path;
     parseArguments(argc, argv, load_path, store_path);
 
-    Image input_image(load_path);
-    Image output_image(input_image.getWidth(), input_image.getHeight());
+    Image image_0(load_path);
+    Image image_1(image_0.getWidth(), image_0.getHeight());
 
-    passConvolution(input_image, output_image);
+    passConvolution(image_0, image_1);
+    passAvgPooling(image_1, image_0);
 
-    output_image.store(store_path);
+    image_0.store(store_path);
 
     return 1;
 }
@@ -36,5 +37,6 @@ void parseArguments(int t_argc, char** t_argv, std::string& t_load_path, std::st
     if(insert_pos >= t_store_path.length()) {
         throw std::invalid_argument("missing file extension");
     }
-    t_store_path.insert(insert_pos, "_edge");
+    t_store_path.erase(insert_pos);
+    t_store_path.append("_edge.bmp");
 }

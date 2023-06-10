@@ -11,6 +11,7 @@ Image::Image(uint32_t t_width, uint32_t t_height) :
     m_width(t_width), m_height(t_height)
 {
     m_arr = new unsigned char[m_width * m_height * 4];
+    memset(m_arr, 0x0, m_width * m_height * 4 * sizeof(unsigned char));
 }
 
 Image::Image(std::string t_load_path) {
@@ -34,7 +35,8 @@ void Image::load(std::string t_load_path) {
 }
 
 void Image::store(std::string t_store_path) { 
-    if(!stbi_write_jpg(t_store_path.c_str(), m_width, m_height, 4, m_arr, 100)) {
+    //if(!stbi_write_jpg(t_store_path.c_str(), m_width, m_height, 4, m_arr, 100)) {
+    if(!stbi_write_bmp(t_store_path.c_str(), m_width, m_height, 4, m_arr)) {
         throw std::runtime_error("Failed to save image");
     }
 }
