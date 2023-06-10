@@ -113,5 +113,13 @@ void passAvgPooling(Image& t_input_image, Image& t_output_image) {
 }
 
 void passThreshold(Image& t_input_image, Image& t_output_image, uint8_t t_threshold) {
-    
+    for(int h = 0; h < t_input_image.getHeight(); h++) {
+        for(int w = 0; w < t_input_image.getWidth(); w++) {
+            int32_t value = pixelToSum(t_input_image.getPixel(w + 0, h + 0));
+            
+            value = value > t_threshold ? ~uint8_t(0) : 0;
+
+            t_output_image.setPixel(w, h, sumToPixel(value));
+        }
+    }
 }

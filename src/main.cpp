@@ -16,8 +16,9 @@ int main(int argc, char** argv) {
 
     passConvolution(image_0, image_1);
     passAvgPooling(image_1, image_0);
+    passThreshold(image_0, image_1, 64);
 
-    image_0.store(store_path);
+    image_1.store(store_path);
 
     return 1;
 }
