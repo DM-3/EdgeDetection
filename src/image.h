@@ -7,6 +7,11 @@
 #include <inttypes.h>
 #include <stdlib.h>
 
+// class for storing images
+//      assumes RGBA pixel format 
+//      -> 4 bytes / pixel
+//      row major image format
+// 
 class Image {
 public:
     Image(uint32_t t_width, uint32_t t_height);
